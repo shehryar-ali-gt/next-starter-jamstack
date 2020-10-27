@@ -3,15 +3,17 @@ import Head from 'next/head'
 
 class Home extends React.Component {
   constructor() {
+    super();
     this.state = {
       timeLine: 0
     }
   }
 
   componentDidMount() {
+    const that = this;
     setInterval(function(){
-      this.setState({
-        timeLine: ++this.state.timeLine 
+      that.setState({
+        timeLine: ++that.state.timeLine 
       })
     }, 3000);
   }
@@ -23,7 +25,7 @@ class Home extends React.Component {
       <h3>Hooray 🎉 - you've built this with <a href="https://nextjs.org">Next.js</a>!</h3>
   
       <h3>{this.state.timeLine}</h3>
-      
+
       <style jsx>{`
         :global(html,body) {
           margin: 0;
